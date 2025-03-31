@@ -28,7 +28,7 @@ metadata:
   namespace: dev
 spec:
   selector:
-    app: wil-deployment
+    app: wil
   ports:
     - protocol: TCP
       port: 8888
