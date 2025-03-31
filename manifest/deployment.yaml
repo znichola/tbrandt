@@ -20,3 +20,18 @@ spec:
         ports:
         - containerPort: 8888
 
+--- 
+
+kind: Service
+metadata:
+  name: wil-service
+  namespace: dev
+spec:
+  selector:
+    app: wil-deployment
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
+  type: LoadBalancer
+
