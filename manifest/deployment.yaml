@@ -15,7 +15,25 @@ spec:
         app: wil
     spec:
       containers:
-      - name: wil
+      - name: wil-image
         image: wil42/playground:v2
         ports:
         - containerPort: 8888
+
+---
+
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: wil-service
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: wil
+  ports:
+    - protocol: TCP
+      port: 8888
+      targetPort: 8888
+  type: LoadBalancer
+
